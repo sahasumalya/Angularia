@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Angularjs</title>
+<link rel = "stylesheet" type = "text/css" href = "main.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="ctrl">
+    <div cust-dir>
+
+    </div>
+     <br>
+    
+	</div>
+	<div ng-controller="ctrl2">
+		<input type="text" ng-model="name">
+		<input type="number" ng-model="num1">
+		<input type="number" ng-model="num2">
+		<button ng-click="api()">CLick</button>
+		The sum is {{num3}}
+		<br>
+		<select ng-model="selected">
+        <option ng-repeat ="rec in details track by $index"> {{rec.RestaurantName}}</option>
+        </select>
+        Selected restuarent is {{selected}}
+		<a href="#!red">See the details</a>
+		<button ng-click="location()">Check the location</button>
+		<button ng-click="menus()">Check menu</button>
+		<input type="text" ng-model="search">search
+		<select ng-model="selected1">
+		<option ng-repeat="vari in items track by $index">{{vari}}</option>
+		</select>
+		</select>
+		<select ng-model="sort">
+			<option>RestaurantName</option>
+			<option>num_ratings</option>
+
+		</select>
+		<div id="fil" ng-if="search!=undefined">
+		<p ng-repeat="name in details track by $index" ng-if="search!=''"> {{name.RestaurantName | myFilter:search}} </p>
+		</div>
+
+		<div id="locate" ng-if="local!=''" > zip={{local.zip}}<br>
+		       distance={{local.distance}}<br>
+		       city={{local.city}}<br>
+		       street={{local.street}}<br>
+		       state={{local.state}}<br>
+		</div>
+		<div id="menu">
+			<p ng-repeat="m in menu_details">{{m}} </p>
+		</div>
+		<div id="tables" ng-if="selected1!=undefined">
+		<p ng-repeat="vari in details  | filter:selected1 | orderBy:sort track by $index"> {{vari.RestaurantName}}</p>
+		</div>
+		<br>
+		
+
+
+	</div>
+<div ng-view>
+
+</div>
+
+</body>
+
+</html>

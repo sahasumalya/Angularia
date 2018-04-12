@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title> DIRECT </title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script type="text/javascript" src="direct.js"></script>
+	</head>
+	<body ng-app="app">
+		<div ng-controller="ctrl">
+          <div show text="{{vari.RestaurantName}}" ng-repeat="vari in details | orderBy:SortOrder" >
+           Name:{{vari.RestaurantName}}
+           <br>
+           Ratings:{{vari.overall_ratings}}
+           <br>
+           Contact: {{vari.phone}}
+
+          </div>
+          <select ng-model="SortOrder">
+          	<option>RestaurantName</option>
+          	<option>num_ratings</option>
+          	<option>overall_ratings</option>
+
+          </select>
+		</div>
+			
+
+		
+
+	</body>
+</html>
