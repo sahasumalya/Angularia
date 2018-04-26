@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NewsSearch</title>
+	<style>
+		#pic{
+			width:30%;
+			height:auto;
+		}
+		#descr{
+			width:50%;
+			position:absolute;
+			left:40%;
+			top:15%;
+		}
+		#news{
+		    position:relative;
+		}
+		h{
+			font-size: 15px;
+		}
+		li{
+			display:inline;
+		}
+	</style>
+</head>
+<body>
+
+	<p>This is the news search view</p>
+
+	<input type="text" placeholder="Type..." ng-model="key">
+	<button ng-click="search()">Search</button>
+	<select ng-model="priority">
+		<option>relevancy</option>
+		<option>popularity</option>
+		<option>publishedAt</option>
+	</select>
+	<button ng-click="TopHeadlines()">Go to Headlines</button>
+	<p>no.of results={{num}}<p>
+	<div id="news" newsBlock ng-if="status===1" ng-repeat="var in articles | limitTo:10:click">
+		<h>{{var.title}}</h>
+		<br>
+		<img id="pic" src={{var.urlToImage}}>
+		<div id="descr">
+			{{var.description}}
+			<br>
+		    <a href={{var.url}} target="_blank" >Read More </a>
+
+		</div>
+
+		
+
+
+	</div>
+	<ul>
+		<li><button ng-click="one()">1</button></li>
+		<li><button ng-click="two()">2</button></li>
+		<li><button ng-click="three()">3</button></li>
+		<li><button ng-click="four()">4</button></li>
+		<li><button ng-click="five()">5</button></li>
+		<li><button ng-click="six()">6</button></li>
+		<li><button ng-click="seven()">7</button></li>
+		<li><button ng-click="eight()">8</button></li>
+		<li><button ng-click="nine()">9</button></li>
+		<li><button ng-click="ten()">10</button></li>
+
+	</ul>
+
+</body>
+</html>
+
+
